@@ -12,4 +12,13 @@ class ProgramController extends Controller
     {
         return view('admin.program.create');
     }
-}
+    
+    // 以下を追記
+    public function create(Request $request)
+    {
+        // admin/program/createにリダイレクトする
+      return redirect('admin/program/create');
+      
+    }
+}  
+
