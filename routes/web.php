@@ -20,16 +20,13 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('program/create', 'Admin\ProgramController@add');
-    Route::post('program/create', 'Admin\ProgramController@create'); 
+    Route::post('program/create', 'Admin\ProgramController@create');
+    Route::get('program', 'Admin\ProgramController@index');
     Route::get('profile/create', 'Admin\ProfileController@add');
     Route::post('profile/create', 'Admin\ProfileController@create'); 
     Route::get('profile/edit', 'Admin\ProfileController@edit');
     Route::post('profile/edit', 'Admin\ProfileController@update'); 
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 

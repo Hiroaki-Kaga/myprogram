@@ -13,7 +13,7 @@ class CreateProgramTable extends Migration
      */
     public function up()
     {
-        Schema::create('programs', function (Blueprint $table) {
+        Schema::create('program', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title'); // ニュースのタイトルを保存するカラム
             $table->string('body');  // ニュースの本文を保存するカラム
@@ -33,6 +33,6 @@ class CreateProgramTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('programs');
+        Schema::dropIfExists('program');
     }
 }
