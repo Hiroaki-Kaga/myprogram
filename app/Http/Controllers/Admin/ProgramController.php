@@ -27,7 +27,7 @@ class ProgramController extends Controller
       $program->image_path = Storage::disk('s3')->url($path);
         
       } else {
-          $news->image_path = null;
+          $program->image_path = null;
       }
 
       unset($form['_token']);

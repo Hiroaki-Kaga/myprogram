@@ -47,7 +47,7 @@ class ProfileController extends Controller
 
   public function edit(Request $request)
   {
-      // News Modelからデータを取得する
+      // Profile Modelからデータを取得する
       $profile = Profile::find($request->id);
       if (empty($profile)) {
         abort(404);    

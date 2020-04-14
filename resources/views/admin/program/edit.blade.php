@@ -48,14 +48,14 @@
                         </div>
                     </div>
                 </form>
-                {{-- 以下を追記　--}}
+               {{-- 以下を追記　--}}
                 <div class="row mt-5">
                     <div class="col-md-4 mx-auto">
                         <h2>編集履歴</h2>
                         <ul class="list-group">
-                            @if ($program_form->program_histories != NULL)
-                                @foreach ($program_form->program_histories as $program_history)
-                                    <li class="list-group-item">{{ $program_history->edited_at }}</li>
+                            @if ($program_form->histories != NULL)
+                                @foreach ($program_form->histories as $history)
+                                    <li class="list-group-item">{{ $history->edited_at }}</li>
                                 @endforeach
                             @endif
                         </ul>
