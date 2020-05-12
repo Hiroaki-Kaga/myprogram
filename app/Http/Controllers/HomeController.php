@@ -19,11 +19,10 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
     {
-        // 「/」 ルートにリダイレクト
-        return redirect('/');   // この行を編集
+        return view('home');
     }
 }
