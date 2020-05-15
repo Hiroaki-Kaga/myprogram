@@ -59,7 +59,6 @@
   font-size: 20px;
 }
 
-// ==========ここから追加する==========
 .loved {
   background-image: url("/images/parts7.png");
   background-repeat: no-repeat;
@@ -73,5 +72,16 @@
   overflow: hidden;
   text-indent: 110%;
   white-space: nowrap;
+}
+
+// ==========ここから追加する==========
+.delete-comment {
+  background-image: url("/images/parts8.png");
+  background-repeat: no-repeat;
+  width: 11px;
+  height: 11px;
+  float: right;
+  margin: 5px 0 0 10px;
+  background-size: 11px !important;
 }
 // ==========ここまで追加する==========

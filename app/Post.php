@@ -16,10 +16,18 @@ class Post extends Model
   {
     return $this->hasMany('App\Like');
   }
-  // ==========ここから追加する==========
+  
   Public function likedBy($user)
   {
     return Like::where('user_id', $user->id)->where('post_id', $this->id);
   }
+  
+  // ==========ここから追加する==========
+  //hasMany設定
+  public function comments()
+  {
+    return $this->hasMany('App\Comment');
+  }
   // ==========ここまで追加する==========
+  
 }

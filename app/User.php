@@ -27,17 +27,21 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    //===== ここから =====
+    
     //hasMany設定
     public function posts()
     {
         return $this->hasMany('App\Post');
     }
-    // ==========ここから追加する==========
+    
     //hasMany設定
     public function likes()
     {
         return $this->hasMany('App\Like');
     }
-    // ==========ここまで追加する==========
+    
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
 }

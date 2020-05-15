@@ -29,11 +29,10 @@
         <a href="/users/{{ $post->user->id }}">
           <img src="/storage/post_images/{{ $post->id }}.jpg" class="card-img-top" />
         </a>
-    
-        {{--  ここから追加する --}}
+
         <div class="card-body">
           <div class="row parts">
-            <div id="like-icon-post-{{ $post->id }}">
+             <div id="like-icon-post-{{ $post->id }}">
               @if ($post->likedBy(Auth::user())->count() > 0)
                 <a class="loved hide-text" data-remote="true" rel="nofollow" data-method="DELETE" href="/likes/{{ $post->likedBy(Auth::user())->firstOrFail()->id }}">いいねを取り消す</a>
               @else
@@ -48,9 +47,23 @@
           <div>
             <span><strong>{{ $post->user->name }}</strong></span>
             <span>{{ $post->caption }}</span>
+            <!-- // ==========ここから追加する========== -->
+            <div id="comment-post-{{ $post->id }}">
+              @include('post.comment_list')
+            </div>
+            <a class="light-color post-time no-text-decoration" href="/posts/{{ $post->id }}">{{ $post->created_at }}</a>
+            <hr>
+            <div class="row actions" id="comment-form-post-{{ $post->id }}">
+           	  <form class="w-100" id="new_comment" action="/posts/{{ $post->id }}/comments" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓" />
+             	  {{csrf_field()}} 
+                <input value="{{ Auth::user()->id }}" type="hidden" name="user_id" />
+                <input value="{{ $post->id }}" type="hidden" name="post_id" />
+                <input class="form-control comment-input border-0" placeholder="コメント ..." autocomplete="off" type="text" name="comment" />
+              </form>
+            </div>
+            <!-- // ==========ここまで追加する========== --> 
           </div>
         </div>
-        {{--  ここまで追加する --}}
       </div>
     </div>
   </div>
