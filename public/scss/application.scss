@@ -2,6 +2,7 @@
 @import "common";
 @import "devise";
 @import "show";
-/* ===ここから追加する=== */
 @import "edit";
-/* ===ここまで追加する=== */
+
+/* 下の行を追加する */
+@import "posts";

@@ -15,14 +15,28 @@ Route::get('/', 'PostsController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/home', 'PostsController@index');
+
+Route::get('/users/edit', 'UsersController@edit');
+
+Route::get('/users/{user_id}', 'UsersController@show');
+
+Route::get('/posts/new', 'PostsController@new')->name('new');
+
+Route::post('/posts','PostsController@store');
+
+Route::post('/users/update', 'UsersController@update');
+
+Route::get('/postsdelete/{post_id}', 'PostsController@destroy');
+
 
 // ==========ここから追加する==========
-//ユーザ編集画面
-Route::get('/users/edit', 'UsersController@edit');
-//ユーザ更新画面
-Route::post('/users/update', 'UsersController@update');
-// ==========ここまで追加する==========
+//いいね処理
+Route::get('/posts/{post_id}/likes', 'LikesController@store');
 
-//ユーザ詳細画面
-Route::get('/users/{user_id}', 'UsersController@show');
+//いいね取消処理
+Route::get('/likes/{like_id}', 'LikesController@destroy');
+// ==========ここまで追加する==========
